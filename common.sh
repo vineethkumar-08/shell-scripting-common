@@ -10,7 +10,11 @@ Y="\e[33m"
 N="\e[0m"
 STAR_TIME=%(date+$s)
 
+mkdir -p $LOGS_FOLDER
+
 echo "$(date "+%Y-%d-%M %H:%M:%S") |script started executing at:$(date)" | tee -a >> $LOGS_FILE
+
+
 
 check_root(){
     if [ $USERID -ne 0 ]; then
@@ -18,7 +22,7 @@ check_root(){
         exit 1
     fi
 }
-mkdir -p $LOGS_FOLDER
+
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
